@@ -56,8 +56,8 @@ public class ImagePipeline {
      * @return The transformed pipeline
      */
     public ImagePipeline oddLines() {
-        Image smaller = new Image(im.w / 2, im.h / 2);
-        smaller.setPixelsColor(ImageFilters.oddLines(im.getPixelsColor()));
+        Image smaller = new Image(im.w, im.h);
+        smaller.setPixelsBW(ImageFilters.oddLines(im.getPixelsBW()));
         im = smaller;
         return this;
     }
@@ -100,15 +100,6 @@ public class ImagePipeline {
      */
     public ImagePipeline derivative() {
         im = createAndSetBW(ImageFilters.derivative(im.getPixelsBW()));
-        return this;
-    }
-
-    /**
-     * Applies a sepia type filter to the image
-     * @return The transformed pipeline
-     */
-    public ImagePipeline sepia() {
-        im.setPixelsColor(ImageFilters.sepia(im.getPixelsColor()));
         return this;
     }
 

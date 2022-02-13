@@ -20,10 +20,10 @@ public class ImageFilters {
     /**
      * Copies every second line of the image and leaves the rest black
      *
-     * @param in The array to work on, remains untouched*
+     * @param in The array to work on, remains untouched
      * @return The transformed array
      */
-    public static Color[][] oddLines(Color[][] in) {
+    public static int[][] oddLines(int[][] in) {
         // TODO Complete me
         return in;
     }
@@ -63,7 +63,7 @@ public class ImageFilters {
     }
 
     /**
-     * Generates a MEME type file
+     * Generates a MEME type file. To be used optionnaly in Task 3.3
      * @see <a href="https://en.wikipedia.org/wiki/Internet_meme">...</a>
      * @param im The original {@link Image} to work on
      * @param txt The text to be embedded (if required, with \n as markers for multiple lines)
@@ -71,19 +71,16 @@ public class ImageFilters {
      */
     public static Image memeGenerator(Image im, String txt) {
         Graphics2D g = im.buffer.createGraphics();
-
-        final Font font = new Font("Impact", Font.BOLD, 96);
-
-        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-            RenderingHints.VALUE_ANTIALIAS_ON);
-
         g.setColor(Color.WHITE);
+
+        // Choose a nice font for the meme text
+        final Font font = new Font("Impact", Font.BOLD, 96);
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g.setFont(font);
+        FontMetrics fm = g.getFontMetrics();
 
         // Center drawing
         int w = im.w;
-
-        FontMetrics fm = g.getFontMetrics();
 
         String[] lines = txt.split("\n");
         int nLines = lines.length;
@@ -91,12 +88,14 @@ public class ImageFilters {
         // Compute origin of first line coordinates
         int y = (int) ((nLines) * fm.getHeight() * 0.8) / (nLines);
 
-        for (String line : txt.split("\n")) {
+        for (String line : lines) {
             g.setColor(Color.WHITE);
+
+            // Center the text according to its length (in pixel coordinates)
             int x = (w - fm.stringWidth(line)) / 2;
             g.drawString(line, x, y);
 
-            // Draws the outline of text
+            // Draws text outline
             FontRenderContext frc = new FontRenderContext(null, true, false);
             TextLayout tl = new TextLayout(line, font, frc);
             AffineTransform af = new AffineTransform();
@@ -106,6 +105,7 @@ public class ImageFilters {
             g.setStroke(new BasicStroke(4));
             g.draw(outline);
 
+            // Increase height for each line of text
             y += (int) (fm.getHeight() * 0.7);
         }
 
@@ -113,16 +113,8 @@ public class ImageFilters {
     }
 
     /**
-     * Make a picture look old by changing its color to sepia tones
-     * @param in The array to work on, remains untouched
-     * @return The transformed {@link Color} array
-     */
-    public static Color[][] sepia(Color[][] in) {
-        return in;
-    }
-
-    /**
-     * Embeds a logo to an image
+     * Embeds a logo to an image using proper alpha blending. To be used in Task 3.3 if wanted
+     *
      * @param image The {@link Color} original array, remains untouched
      * @param logo The {@link Color} logo array, remains untouched
      * @param percx x-location, in percentage of original image (0-1)
@@ -179,54 +171,32 @@ public class ImageFilters {
 
     public static void main(String[] args) {
         final String astronautPath = "resources/astronaut.png";
-        final String ricePath = "resources/rice.jpg";
 
-         // Create or loads images
+        // Load picture and create Image from it
         Image imAstronaut = new Image(astronautPath);
-        Image imRice = new Image(ricePath);
 
-        int[][] riceArray = imRice.getPixelsBW();
+        // Gets pixels as an int[][]
+        int[][] astronautBW_a = imAstronaut.getPixelsBW();
 
-        Color[][] originalBW = imAstronaut.getPixelsColor();
-        Image im2 = new Image(imAstronaut.w / 2, imAstronaut.h / 2);
-//        Color[][] modifiedBW = ImageFilters.oddLines(riceArray);
+        // Image for storing the modifications
+        Image imModified = new Image(imAstronaut.w, imAstronaut.h);
 
-        //Color[][] originalWithLogo = ImageFilters.embedLogo(im1.getPixelsColor(), imLogo.getPixelsColor(), 0.85, 0.15);
+        // Sets the pixels of this image from a filter
+        imModified.setPixelsBW(ImageFilters.oddLines(astronautBW_a));
 
-        // Sets the array values to the image
-//        im2.setPixelsColor(modifiedBW);
-   //     im1.setPixelsColor(originalWithLogo);
-
-        Image im3 = new Image(astronautPath);
-        im3 = memeGenerator(im3, "The moon!");
+        Image imMeme = new Image(astronautPath);
+        imMeme = memeGenerator(imMeme, "To the\nmoon!");
 
         // Show the pictures on two different windows
-        new ImageWindow(imAstronaut, "Original", -450, 200);
-        new ImageWindow(im2, "Modified", 0, 200);
-        new ImageWindow(im3, "Meme", 450, 200);
+        new ImageWindow(imAstronaut, "Original", -600, 0);
+        new ImageWindow(imModified, "Modified", 0, 0);
+        new ImageWindow(imMeme, "Meme", 600, 0);
 
-        new ImageWindow(ImagePipeline.
+        // What we want to obtain with the fluent API
+        Image pipe1 = ImagePipeline.
             create(astronautPath).
-            oddLines().
-            threshold(128).
-            getImage(), "Meme", -450, -230);
-
-//        Image pipe1 = ImagePipeline.
-//            create(astronautPath).
-//            derivative().
-//            blur(3).
-//            embedLogo(imLogo, 0.9, 0.9).
-//            memeGenerator("It\nrocks!").
-//            getImage();
-
-//        new ImageWindow(pipe1, "Multi-filters", 0, -250);
-
-        try {
-            FileOutputStream os = new FileOutputStream("resized.png");
-            im2.dumpToStream(os);
-            os.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            derivative().
+            blur(3).
+            getImage();
     }
 }

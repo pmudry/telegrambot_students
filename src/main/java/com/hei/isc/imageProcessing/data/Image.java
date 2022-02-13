@@ -12,7 +12,7 @@ import javax.imageio.ImageIO;
 import com.hei.isc.Utils;
 
 /**
- * A {@link BufferedImage} backed image class
+ * A {@link BufferedImage} backed image class, implementing a facade pattern
  * @author Pierre-André Mudry
  * @version 1.0
  */

@@ -11,5 +11,5 @@ import org.slf4j.LoggerFactory;
  */
 public class Utils {
     public static Logger logger = LoggerFactory.getLogger(Utils.class);
-    public static String version = "1.0";
+    public static String version = "0.1";
 }
