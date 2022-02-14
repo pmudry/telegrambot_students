@@ -17,7 +17,7 @@ This bot is targeted at students with an existing background in programming, mai
 
 <p align="center">
   <a href="https://hevs.ch/isc">
-  <img src="https://github.com/pmudry/telegrambot_students/blob/master/resources/isc_logo_256.png?raw=true" />
+  <img src="https://github.com/pmudry/telegrambot_students/blob/master/resources/ISC_Logo_EN_CMJN_200.png?raw=true"/>    
   </a>
 </p>
 
