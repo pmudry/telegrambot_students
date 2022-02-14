@@ -63,7 +63,7 @@ public class ImageFilters {
     }
 
     /**
-     * Generates a MEME type file. To be used optionnaly in Task 3.3
+     * Generates a MEME type file. To be used optionnaly in Task 3.2
      * @see <a href="https://en.wikipedia.org/wiki/Internet_meme">...</a>
      * @param im The original {@link Image} to work on
      * @param txt The text to be embedded (if required, with \n as markers for multiple lines)
@@ -113,7 +113,7 @@ public class ImageFilters {
     }
 
     /**
-     * Embeds a logo to an image using proper alpha blending. To be used in Task 3.3 if wanted
+     * Embeds a logo to an image using proper alpha blending. To be used in Task 3.2 if wanted
      *
      * @param image The {@link Color} original array, remains untouched
      * @param logo The {@link Color} logo array, remains untouched
