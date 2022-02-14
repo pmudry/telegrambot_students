@@ -16,7 +16,9 @@ The project is not complete and is intented to be completed in a live coding ses
 This bot is targeted at students with an existing background in programming, mainly in Java. It was made to demonstrate some things taught in the [*Computer science and communication* bachelor's degree at the School of engineering in Sion, Switzerland](https://www.hevs.ch/isc).
 
 <p align="center">
+  <a href="https://hevs.ch/isc">           
   <img src="https://github.com/pmudry/telegrambot_students/blob/master/resources/isc_logo_256.png?raw=true" />
+  </a>
 </p>
 
 ## Demonstration of a full, running bot
