@@ -22,10 +22,11 @@ This bot is targeted at students with an existing background in programming, mai
 ## Demonstration of full bot
 A more complete and running instance of the bot can be reached through https://telegram.me/HEI_ISCbot if you want to test it and if it's running.
 
-Enjoy and have fun programming !
+Enjoy and have fun programming :balloon: !
 
 _Pierre-André Mudry_, February 2022
 
+## License
 This work is licensed under a
 [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
 
