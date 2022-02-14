@@ -1,4 +1,4 @@
-# A Telegram bot, in Java, for ISC@HEI
+# A Telegram bot 🤖 - For ISC@HEI
 
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
 
