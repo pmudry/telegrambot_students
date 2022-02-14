@@ -27,9 +27,9 @@ When complete, the bot can be built and run indepently thanks to Maven packaging
 mvn compile package
 ```
 
-should result in a runnable `JAR` file in the `target` directory. Voilà !
+should result in a runnable `JAR` file in the `target` directory. Tada!
 
-⚠️ A word of caution though : please do not integrate the authentication token directly in your source code. A better way of integrating the token from outside the code is to set an environment variable and get it with a call to `System.getEnv(YOUR_ENV_VARIABLE)` where required. You have been warned !
+A word of caution though ⚠️ : do not integrate the authentication token directly in your source code. A better way of integrating the token from outside the code is to set an environment variable and get it with a call to `System.getEnv(YOUR_ENV_VARIABLE)` where required. You have been warned !
 
 ## Demonstration of a full, running bot
 A more complete and running instance of the bot, based on this template, can be reached through https://telegram.me/HEI_ISCbot if you want to test it and if it's running.
