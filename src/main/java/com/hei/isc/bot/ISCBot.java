@@ -201,10 +201,8 @@ public class ISCBot extends TelegramLongPollingBot {
         commandsList.add(new BotCommand("help", "Display commands"));
 
         try {
-            // Send the message
-            execute(new SetMyCommands(commandsList, new BotCommandScopeDefault(), "fr"));
-            execute(new SetMyCommands(commandsList, new BotCommandScopeDefault(), "en"));
-            execute(new SetMyCommands(commandsList, new BotCommandScopeDefault(), "de"));
+            // Send the message, with a menu for all languages
+            execute(new SetMyCommands(commandsList, new BotCommandScopeDefault(), null));
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
