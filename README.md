@@ -1,11 +1,14 @@
 # A Telegram bot, in Java, for ISC@HEI
 
 ## Content
-This projet file demonstrates the usage of a Telegram messenger application bot. It implements several features:
+This projet file is a skeleton for implementing Telegram messenger application bot. It implements several features:
 
 - Implementation of commands in menu
 - Basic text replies
 - Simple image processing filters
+
+## Project description and tasks to do
+The full project description, in French, is available [as a PDF](telebot.pdf) file with clickable links.
 
 ## Audience
 This bot is targeted at students with an existing background in programming, mainly in Java. It was made to demonstrate some things taught in the [*Computer science and communication* bachelor's degree at the School of engineering in Sion, Switzerland](https://www.hevs.ch/isc).
