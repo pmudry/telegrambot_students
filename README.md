@@ -1,5 +1,7 @@
 # A Telegram bot, in Java, for ISC@HEI
 
+[![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
+
 ## Content
 This projet file is a skeleton for implementing Telegram messenger application bot. It implements several features:
 
@@ -20,5 +22,15 @@ This bot is targeted at students with an existing background in programming, mai
 ## Demonstration of full bot
 A more complete and running instance of the bot can be reached through https://telegram.me/HEI_ISCbot if you want to test it and if it's running.
 
-Enjoy !
-Pierre-André Mudry, February 2022
+Enjoy and have fun programming !
+
+_Pierre-André Mudry_, February 2022
+
+This work is licensed under a
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
+
+[![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
+
+[cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
+[cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
+[cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
